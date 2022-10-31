@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<svg version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='350px' height='200px' viewBox='0 0 350 200'>
+<!-- END OF HEADER -->
+<rect style='opacity:1.0;fill:#FFFFFF;stroke:none' width='350' height='200' x='0' y='0'> </rect>
+<path class='bond-0' d='M 15.9091,90.3734 L 126.831,43.1731' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1' d='M 126.831,43.1731 L 168.123,74.2312' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1' d='M 168.123,74.2312 L 209.415,105.289' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2' d='M 236.923,109.782 L 285.507,89.1078' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2' d='M 285.507,89.1078 L 334.091,68.4339' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path  class='atom-2' d='M 216.909 101.474
+L 226.189 116.474
+Q 227.109 117.954, 228.589 120.634
+Q 230.069 123.314, 230.149 123.474
+L 230.149 101.474
+L 233.909 101.474
+L 233.909 129.794
+L 230.029 129.794
+L 220.069 113.394
+Q 218.909 111.474, 217.669 109.274
+Q 216.469 107.074, 216.109 106.394
+L 216.109 129.794
+L 212.429 129.794
+L 212.429 101.474
+L 216.909 101.474
+' fill='#0000FF'/>
+<path  class='atom-2' d='M 212.089 132.626
+L 215.929 132.626
+L 215.929 144.666
+L 230.409 144.666
+L 230.409 132.626
+L 234.249 132.626
+L 234.249 160.946
+L 230.409 160.946
+L 230.409 147.866
+L 215.929 147.866
+L 215.929 160.946
+L 212.089 160.946
+L 212.089 132.626
+' fill='#0000FF'/>
+</svg>
