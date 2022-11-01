@@ -53,8 +53,8 @@ conda install openbabel -c conda-forge
 python predict_tautomer.py --help
 
 usage: predict_tautomer.py [-h] [--smi SMI] [--cutoff CUTOFF]
-                           [--cutmol CUTMOL] [--num_confs NUM_CONFS]
-                           [--output OUTPUT]
+                           [--cutmol CUTMOL] [--num_confs NUM_CONFS] [--ph PH]
+                           [--tph TPH] [--output OUTPUT]
 
 calculate low-energy tautomer for small molecules
 
@@ -66,6 +66,8 @@ optional arguments:
   --num_confs NUM_CONFS
                         the number of conformation for solvation energy
                         prediction
+  --ph PH               the target pH for protonation states generation
+  --tph TPH             pH tolerance for protonation states generation
   --output OUTPUT       the output SDF file name
 
 ```
