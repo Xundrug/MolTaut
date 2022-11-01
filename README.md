@@ -34,6 +34,9 @@ and then reinstall them:
 ```
 pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.10.0+cpu.html
 ```
+```
+https://drive.google.com/file/d/1xhJRTJa49Qdj1R00PISWGVKHK2WeQKnJ/view?usp=share_link
+```
 
 ## Usage
 
