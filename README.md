@@ -34,8 +34,17 @@ and then reinstall them:
 ```
 pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.10.0+cpu.html
 ```
+
+Or you can use the environment created by conda-pack, and activate the python env by conda. Some errors may occur when you do `from openbabel import pybel`, you just need to reinstall openbabel by conda. The environment file download URL is as fellow:  
 ```
 https://drive.google.com/file/d/1xhJRTJa49Qdj1R00PISWGVKHK2WeQKnJ/view?usp=share_link
+
+mkdir moltaut_env
+mv solv_rdkit_2020_env.tar.gz moltaut_env
+tar -zxvf solv_rdkit_2020_env.tar.gz
+source activate moltaut_env/bin/active
+conda remove openbabel
+conda install openbabel -c conda-forge
 ```
 
 ## Usage
