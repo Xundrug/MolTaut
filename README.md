@@ -37,7 +37,6 @@ pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geo
 
 ## Usage
 
-## Usage
 ```
 python predict_tautomer.py --help
 
