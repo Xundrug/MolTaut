@@ -111,6 +111,8 @@ def protonate_mol(smi, ph, tph):
         for i in range(n + 1):
             new_mol = deepcopy(mc)
             modify_stable_pka(new_mol, stable_data)
+            if i == 0:
+                new_smis.append(Chem.MolToSmiles(Chem.MolFromSmiles(Chem.MolToSmiles(new_mol))))
             new_unsmis = modify_unstable_pka(new_mol, unstable_data, i)
             new_smis.extend(new_unsmis)
     return new_smis

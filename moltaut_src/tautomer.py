@@ -32,7 +32,7 @@ def repair_smiles(gm):
     smi = Chem.MolToSmiles(gm)
     new_mol = Chem.MolFromSmiles(smi, sanitize=True)
     if not new_mol:
-        print("generate error smiles for tautomers", Chem.MolToSmiles(gm), smi)
+        #print("generate error smiles for tautomers", Chem.MolToSmiles(gm), smi)
         return
     return Chem.MolToSmiles(new_mol)
 

@@ -1,0 +1,26 @@
+COMMAND:
+ /localhome/Softwares/schrodinger/epik-v5.3/bin/Linux-x86_64/epik_app -imae /home/xlpan/localhome4/Study/MolTaut_Web/MolTaut/epik_1/epik_1.maegz -omae epik_1-out.maegz -s water
+SCHRODINGER: /localhome/Softwares/schrodinger
+
+Running Epik version     5.3139
+Epik. Copyright Schrodinger, LLC. All rights reserved.
+
+Input file name:                        /home/xlpan/localhome4/Study/MolTaut_Web/MolTaut/epik_1/epik_1.maegz
+Output file name:                       epik_1-out.maegz
+Solvent model name:                     water
+[running at reduced cpu priority]
+JobID:                                  xlpan-System-Product-Name-0-6360fe59
+---------------------------
+Processing Input Structure #1
+        Title: 
+ Calculated pKas
+         Conjugate
+  Atom   Acid/Base  pKa
+    35   Conj_Acid 14.17
+    11   Conj_Base  4.70
+     4   Conj_Base  1.12
+    26   Conj_Base  0.79
+---------------------------
+
+Job completed at Tue Nov  1 19:09:14 2022
+Elapsed time: 1.03526s

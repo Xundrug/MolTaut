@@ -1,0 +1,1 @@
+"${SCHRODINGER}/epik" -inp epik_1.in -HOST localhost:1 -NJOBS 1 -TMPLAUNCHDIR

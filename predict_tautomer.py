@@ -106,7 +106,7 @@ def is_cut_mol(mm):
         return True
 
 
-def generate_tautomer_cutmol(mm, num_confs, energy_range, ph, tph):
+def generate_tautomer_cutmol(smi, num_confs, energy_range, ph, tph):
     lower_energy_tauts = get_lower_energy_tauts(
         smi,
         energy_range,
@@ -144,14 +144,14 @@ def generate_tautomer_non_cutmol(mm, num_confs, energy_range, ph, tph):
     return dfs_res_lower, dfs_res_upper
 
 
-def func(smi, cutmol, energy_range=2.8, ph=7.0, tph=1.5, num_confs=3):
+def func(smi, cutmol, energy_range=2.8, ph=7.0, tph=2.0, num_confs=3):
     mm = Chem.MolFromSmiles(smi)
     mm = un.uncharge(mm)
     mm = Chem.MolFromSmiles(Chem.MolToSmiles(mm))
     if cutmol:
         if is_cut_mol(mm):
             dfs_res_lower, dfs_res_upper = generate_tautomer_cutmol(
-                mm, energy_range=energy_range, num_confs=num_confs, ph=ph, tph=tph)
+                smi, energy_range=energy_range, num_confs=num_confs, ph=ph, tph=tph)
         else:
             dfs_res_lower, dfs_res_upper = generate_tautomer_non_cutmol(
                 mm, energy_range=energy_range, num_confs=num_confs, ph=ph, tph=tph)
@@ -212,12 +212,14 @@ def construct_data(dfs, label):
     return datas
 
 
-def get_taut_data(smi, cutmol, num_confs, energy_cutoff):
+def get_taut_data(smi, cutmol, num_confs, energy_cutoff, ph, tph):
     dfs_res_lower, dfs_res_upper = func(
         smi,
         cutmol=cutmol,
         energy_range=energy_cutoff,
-        num_confs=num_confs)
+        num_confs=num_confs,
+        ph=ph,
+        tph=tph)
     datas_lower = construct_data(
         dfs_res_lower,
         label="low_energy")
@@ -246,8 +248,18 @@ def run():
     parser.add_argument(
         '--num_confs',
         type=int,
-        default=6,
+        default=50,
         help='the number of conformation for solvation energy prediction')
+    parser.add_argument(
+        '--ph',
+        type=float,
+        default=7.0,
+        help='the target pH for protonation states generation')
+    parser.add_argument(
+        '--tph',
+        type=float,
+        default=2.0,
+        help='pH tolerance for protonation states generation')
     parser.add_argument(
         '--output',
         type=str,
@@ -260,9 +272,11 @@ def run():
     energy_cutoff = args.cutoff
     cutmol = args.cutmol
     num_confs = args.num_confs
+    ph = args.ph
+    tph = args.tph
     output = args.output
 
-    data = get_taut_data(smi, cutmol, num_confs, energy_cutoff)
+    data = get_taut_data(smi, cutmol, num_confs, energy_cutoff, ph, tph)
     print(data)
     write_file(data, output)
     return

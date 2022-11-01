@@ -1,0 +1,4 @@
+INPUT_FILE_NAME   /home/xlpan/localhome4/Study/MolTaut_Web/MolTaut/epik_1/epik_1.maegz
+OUTPUT_FILE_NAME   epik_1-out.maegz
+ANALYSIS_MODE   QUERY
+SOLVENT   H2O
