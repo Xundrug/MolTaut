@@ -97,10 +97,15 @@ def combine_lower_energy_tauts(lower_energy_tauts):
 
 
 def is_cut_mol(mm):
-    smarts = "[#6+0;!$(*=,#[!#6])]!@!=!#[!#0;!#1;!$([NH,NH2,OH,SH]-[*;r]);!$(*=,#[*;!R])]"
-    pattern = Chem.MolFromSmarts(smarts)
-    mres = mm.GetSubstructMatches(pattern)
-    if len(mres) == 0:
+    smarts = ["[#6+0;!$(*=,#[!#6])]!@!=!#[!#0;!#1;!$([NH,NH2,OH,SH]-[*;r]);!$(*=,#[*;!R])]", "[#6+0;!$(*=,#[!#6])]!@!=!#[#16;H0]"]
+    patterns = [Chem.MolFromSmarts(sm) for sm in smarts]
+
+    matches = []
+    for pat in patterns:
+        ms = mm.GetSubstructMatches(pat)
+        matches.extend(list(ms))
+
+    if len(matches) == 0:
         return False
     else:
         return True
