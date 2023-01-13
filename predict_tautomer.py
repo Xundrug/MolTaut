@@ -1,6 +1,7 @@
+import warnings
+warnings.filterwarnings("ignore")
 from itertools import product
 import random
-import warnings
 import pandas as pd
 from rdkit.Chem.Draw import rdMolDraw2D
 from rdkit.Chem.MolStandardize import rdMolStandardize
@@ -20,8 +21,6 @@ os.environ["MKL_NUM_THREADS"] = "1"
 os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 
-
-warnings.filterwarnings("ignore")
 un = rdMolStandardize.Uncharger()
 
 
@@ -96,16 +95,39 @@ def combine_lower_energy_tauts(lower_energy_tauts):
     return lower_energy_mols, upper_energy_mols
 
 
-def is_cut_mol(mm):
-    smarts = ["[#6+0;!$(*=,#[!#6])]!@!=!#[!#0;!#1;!$([NH,NH2,OH,SH]-[*;r]);!$(*=,#[*;!R])]", "[#6+0;!$(*=,#[!#6])]!@!=!#[#16;H0]"]
-    patterns = [Chem.MolFromSmarts(sm) for sm in smarts]
-
+def match_bonds(mm):
+    tsmarts = ["[#6+0;!$(*=,#[!#6])]!@!=!#[!#0;!#1;!X1;!$([NH,NH2,OH,SH]-[*;r]);!$(*=,#[*;!R])]"]
+    tpatterns = [Chem.MolFromSmarts(tsm) for tsm in tsmarts]
     matches = []
-    for pat in patterns:
-        ms = mm.GetSubstructMatches(pat)
-        matches.extend(list(ms))
+    for tpat in tpatterns:
+        tms = mm.GetSubstructMatches(tpat)
+        matches.extend(list(tms))
+    return matches
 
-    if len(matches) == 0:
+
+def match_atoms(mm):
+    fsmarts = ["[$([#6]([F,Cl])-[*;r])]"]
+    fpatterns = [Chem.MolFromSmarts(fsm) for fsm in fsmarts]
+    fatom_idxs = []
+    for fpat in fpatterns:
+        fms = mm.GetSubstructMatches(fpat)
+        fatom_idxs.extend(list(fms))
+    fatom_idxs = sum(fatom_idxs, ())
+    return fatom_idxs
+
+
+def is_cut_mol(mm):
+    bonds_idxs = match_bonds(mm)
+    atom_idxs = match_atoms(mm)
+
+    filter_bond_idxs = []
+    for bond_idx in bonds_idxs:
+        begin_idx = bond_idx[0]
+        end_idx = bond_idx[1]
+        if (begin_idx in atom_idxs) or (end_idx in atom_idxs):
+            continue
+        filter_bond_idxs.append(bond_idx)
+    if len(filter_bond_idxs) == 0:
         return False
     else:
         return True

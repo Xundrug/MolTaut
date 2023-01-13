@@ -127,7 +127,7 @@ def calc_solv(tauts, fmax, num_confs, is_fragment):
     df = pd.DataFrame(res)
     if len(df) == 0:
         return df 
-    df[3] = df[1] + df[2]
+    df[3] = df[1] + df[2]*0.72
     df[3] = df[3] - df[3].min()
     df.columns = ["smi", "solv", "internal", "dG"] 
     return df
@@ -135,11 +135,7 @@ def calc_solv(tauts, fmax, num_confs, is_fragment):
 def rank_tauts(tauts, num_confs, fmax=0.01, is_fragment=True):
     df = calc_solv(tauts, fmax, num_confs, is_fragment)
     smirks_rules = [taut.smirks for taut in tauts]
-    #print(len(tauts))
-    #print(len(df))
-    #print(len(smirks_rules))
     df["smirks"] = smirks_rules
-    df["dG"] = df["dG"] * 0.72
     df = df.sort_values("dG")
     return df
 
