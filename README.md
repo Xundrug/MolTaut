@@ -3,7 +3,7 @@
 Fast and proper treatment of tautomeric state for drug-like molecules is critical in computer-aided drug discovery since the major tautomer of a molecule determines its pharmacophore features and physical properties. We present MolTaut, a tool for the rapid generation of favorable states of drug-like molecules in water. MolTaut works by enumerating possible tautomer states with tautomeric transformation rules, ranking tautomers with their relative internal energies and solvation energies calculated by AI-based models, and generating preferred ionization states according to predicted microscopic pKa. We found that the ranking ability of the AI-based tautomer scoring approach is comparable to the DFT method from which the AI models try to learn. To facilitate the usage of MolTaut, we made a web server, which is available at http://moltaut.xundrug.cn. MolTaut is a handy tool for generating low energy tatuomers when preparing chemical structures in computer-aided drug discovery. Besides, MolTaut can be used for analyzing substitution effect on the tautomeric equilibrium in lead optimization.
 
 
-![image](https://github.com/Xundrug/MolTaut/blob/master/images/Picture1.png)
+![image](https://github.com/Xundrug/MolTaut/blob/master/images/Picture2.png)
 
 
 ## Requirements
