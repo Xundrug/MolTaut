@@ -263,7 +263,7 @@ def run():
     parser.add_argument(
         '--tph',
         type=float,
-        default=2.0,
+        default=1.0,
         help='pH tolerance for protonation states generation')
     parser.add_argument(
         '--output',

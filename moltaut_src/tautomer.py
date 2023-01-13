@@ -163,7 +163,7 @@ def enumerate_tauts(om):
         for km in kms:
             get_tauts_by_smirks(km, tauts_dict)
         
-        for i in range(3):
+        for i in range(5):
             get_tauts_by_dict(tauts_dict)
 
         ntauts = unique_tauts(tauts_dict,om)
