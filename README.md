@@ -77,6 +77,10 @@ optional arguments:
   --output OUTPUT       the output SDF file name
 
 ```
+These is a example for the MolTaut usage:
+```
+python predict_tautomer.py --smi "Cc1c2c([nH]n1)OC(=C([C@@]2(c3cc(cc(c3)N4CCCC4)C(F)(F)F)C(C)C)C#N)N"
+```
 
 Or you can access the web server of MolTaut--[URL](http://moltaut.xundrug.cn/)
 

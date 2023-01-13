@@ -148,8 +148,7 @@ def generate_tautomer_cutmol(smi, num_confs, energy_range, ph, tph):
     else:
         dfs_res_upper = pd.DataFrame(upper_energy_mols)
         dfs_res_upper = dfs_res_upper.sort_values(1)
-        dfs_res_upper[2] = dfs_res_upper[0].map(
-            lambda x: protonate_mol(x, ph, tph))
+        dfs_res_upper[2] = dfs_res_upper[0]
     return dfs_res_lower, dfs_res_upper
 
 
@@ -166,12 +165,11 @@ def generate_tautomer_non_cutmol(mm, num_confs, energy_range, ph, tph):
         dfs_res_upper = pd.DataFrame({0: [], 1: [], 2: []})
     else:
         dfs_res_upper = dfs_res_upper.sort_values(1)
-        dfs_res_upper[2] = dfs_res_upper[0].map(
-            lambda x: protonate_mol(x, ph, tph))
+        dfs_res_upper[2] = dfs_res_upper[0]
     return dfs_res_lower, dfs_res_upper
 
 
-def func(smi, cutmol, energy_range=2.8, ph=7.0, tph=2.0, num_confs=3):
+def func(smi, cutmol, energy_range=2.8, ph=7.0, tph=1.0, num_confs=3):
     mm = Chem.MolFromSmiles(smi)
     mm = un.uncharge(mm)
     mm = Chem.MolFromSmiles(Chem.MolToSmiles(mm))
