@@ -39,12 +39,18 @@ Or you can use the environment created by conda-pack, and activate the python en
 ```
 https://drive.google.com/file/d/1xhJRTJa49Qdj1R00PISWGVKHK2WeQKnJ/view?usp=share_link
 
-mkdir moltaut_env
-mv solv_rdkit_2020_env.tar.gz moltaut_env
+mkdir solv_env
+mv solv_rdkit_2020_env.tar.gz solv_env
+cd solv_env
 tar -zxvf solv_rdkit_2020_env.tar.gz
-source activate moltaut_env/bin/active
+source activate bin/active
 conda remove openbabel
 conda install openbabel -c conda-forge
+```
+
+Or you can use the shell script to install the python environment.
+```
+./install_moltaut_env.sh
 ```
 
 ## Usage
