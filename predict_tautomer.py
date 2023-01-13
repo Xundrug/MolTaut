@@ -205,6 +205,8 @@ def write_file(datas, sdf_path):
         psmis = data['psmis']
         score = data['score']
         label = data['label']
+        if label == "high_energy":
+            continue
         for smi in psmis:
             mol, cids = generate_conf(smi)
             mol.SetProp("tautomer smiles", tsmi)

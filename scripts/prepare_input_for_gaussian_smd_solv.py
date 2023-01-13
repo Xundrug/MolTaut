@@ -2,18 +2,11 @@
 # coding: utf-8
 
 
-import pandas as pd
 from rdkit import Chem
-import dataloader as dl
-
+from gen_confs import  gen_confs_set
 import numpy as np
-import os
-import numpy as np
-from scipy.spatial.distance import cdist
 import sys, os
-from rdkit import Chem
 import glob
-import pickle
 
 
 element_dict = {1: "H", 6: "C", 7: "N", 8: "O", 16: "S", 9: "F", 17: "Cl"}
@@ -90,14 +83,11 @@ def gen_gjf(mol, foname):
     write_nocharge(fname, xyzblock, mcharge)
     return
 
-j = 0
-for pl_file in glob.glob("pickles/Calc/*.pickle"):
-    f = open(pl_file, "rb")
-    mols = pickle.load(f)
-    f.close()
-    for mol in mols:
-        mcharge = Chem.GetFormalCharge(mol)
-        gen_gjf( mol, str(j) )
-        j += 1
+if __name__=="__main__":
+    smi = "CCCCCC"
+    mol_name = "test_mol"
+    block = gen_confs_set(smi, num_confs=1)[0]
+    mol = Chem.MolFromMolBlock(block)
+    gen_gjf( mol, mol_name )
 
 
