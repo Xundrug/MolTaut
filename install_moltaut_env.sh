@@ -15,5 +15,5 @@ source activate bin/active
 
 conda remove openbabel -y
 conda install openbabel -c conda-forge -y
-
+pip install mols2grid
 
