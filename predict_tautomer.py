@@ -266,7 +266,7 @@ def run():
         default='O=c1ccnc[nH]1',
         help='the molecular smiles')
     parser.add_argument(
-        '--cutoff',
+        '--low_energy_tautomer_cutoff',
         type=float,
         default=2.8,
         help='the energy cutoff for low energy')
@@ -296,7 +296,7 @@ def run():
     args = parser.parse_args()
 
     smi = args.smi
-    energy_cutoff = args.cutoff
+    energy_cutoff = args.low_energy_tautomer_cutoff
     cutmol = args.cutmol
     num_confs = args.num_confs
     ph = args.ph

@@ -13,5 +13,5 @@
 * `tautomer.py`: This script is used to generate tautomers for each molecule.
 * `cut_mol.py`: This script is used to split the molecule into the different fragments.
 * `combine_frag.py`: Used to combine different fragment molecules by the linker information to get the full molecule.
-* `molgpka`: The package for micro-pka prediction and protonation generation.
+* `molgpka`: The package for micro-pka prediction and protonation generation, details are shown in https://github.com/Xundrug/MolGpKa.
 
