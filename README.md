@@ -58,7 +58,8 @@ Or you can use the shell script to install the python environment.
 ```
 python predict_tautomer.py --help
 
-usage: predict_tautomer.py [-h] [--smi SMI] [--cutoff CUTOFF]
+usage: predict_tautomer.py [-h] [--smi SMI]
+                           [--low_energy_tautomer_cutoff LOW_ENERGY_TAUTOMER_CUTOFF]
                            [--cutmol CUTMOL] [--num_confs NUM_CONFS] [--ph PH]
                            [--tph TPH] [--output OUTPUT]
 
@@ -67,7 +68,8 @@ calculate low-energy tautomer for small molecules
 optional arguments:
   -h, --help            show this help message and exit
   --smi SMI             the molecular smiles
-  --cutoff CUTOFF       the energy cutoff for low energy
+  --low_energy_tautomer_cutoff LOW_ENERGY_TAUTOMER_CUTOFF
+                        the energy cutoff for low energy
   --cutmol CUTMOL       determine to frag the molecule
   --num_confs NUM_CONFS
                         the number of conformation for solvation energy
